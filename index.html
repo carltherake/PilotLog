@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Pilot's Log</title>
+        <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/dark-hive/jquery-ui.css"></style>
+        <link rel="stylesheet" type="text/css" href="./styles/jquery.timepicker.css"></style>
+        <link rel="stylesheet" type="text/css" href="./styles/main.css"></style>
+
+        <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+        <script src="./scripts/jquery.timepicker.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./scripts/mocks.js"></script>
+    </head>
+    <body>
+        <div class="leftmenu">
+            <div><input type="text" id="dayselect" class="datepicker" /></div>
+        </div>
+        <div class="mainbody">
+            <div>
+                <input type="text" id="starttime" class="timepicker" />
+                <input type="text" id="endtime" class="timepicker" />
+                <input type="number" id="135hours" class="135hours" />
+                <input type="text" id="comments" class="comments" />
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+            <table id="MonthView">
+                <caption><h3>Month</h3></caption>
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Actual Duty</th>
+                        <th>Rest</th>
+                        <th>135 Hours</th>
+                        <th>Other Com</th>
+                        <th>Total Daily</th>
+                        <th>Month</th>
+                        <th>Comments</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <script type="text/javascript" src="./scripts/main.js"></script>
+    </body>
+</html>

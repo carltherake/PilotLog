@@ -1,0 +1,13 @@
+.leftmenu {
+    float: left;
+    height: 100%;
+    margin-right: 20px;
+    padding: 5px;
+}
+.mainbody {
+    padding: 5px;
+}
+.editicon {
+    width: 17px;
+    height: 17px;
+}
