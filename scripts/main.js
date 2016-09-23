@@ -34,6 +34,7 @@ function BuildTable() {
             dayDate = new Date(Days[i].Date);
 
             dateCell.appendChild(document.createTextNode(dayDate.getDate()));
+            editCell.innerHTML = "<img src='./images/Pencil-icon.png' alt='edit' class='editicon' />";
     }
 }
 
