@@ -1,5 +1,6 @@
 var Days = GetDays(),
-    selectedDate;
+    selectedDate,
+    monthsInYear = new Array();
 
 function SortRows(a, b) {
     a = new Date(a.Date);
@@ -42,6 +43,7 @@ $(function() {
     selectedDate = new Date();
     SetTableCaption();
     Days.sort(SortRows);
+    BuildMonths();
     BuildTable();
     $(".datepicker").datepicker({
         onSelect: function(dateText, inst){
