@@ -13,7 +13,9 @@ function SetTableCaption() {
         tableCaption = monthTable.createCaption(),
         monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-        tableCaption.innerHTML = "<h3>" + monthNames[selectedDate.getMonth()] + "</h3>";
+        tableCaption.innerHTML = `<div><h3>Carl Ray Forgey ${monthNames[selectedDate.getMonth()]} ${selectedDate.getFullYear()}</h3></div>`;
+        tableCaption.innerHTML += "<div>Cert. #8FCA677M</div>";
+        tableCaption.innerHTML += "<div>135.267(c) Assigned Duty Times: 0500 to 1900</div>"
 }
 
 function BuildTable() {
