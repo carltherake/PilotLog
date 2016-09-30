@@ -45,11 +45,7 @@ $(function() {
     Days.sort(SortRows);
     BuildMonths();
     BuildTable();
-    $(".datepicker").datepicker({
-        onSelect: function(dateText, inst){
-            selectedDate = $(this).datepicker('getDate');
-            SetTableCaption();
-        }});
+    $(".datepicker").datepicker({ onSelect: function(dateText, inst){ selectedDate = $(this).datepicker('getDate'); SetTableCaption(); }});
     $(".datepicker").datepicker("setDate", new Date());
     $(".timepicker").timepicker();
 });
