@@ -8,21 +8,32 @@ function SortRows(a, b) {
     return a<b ? -1 : a>b ? 1 : 0;
 }
 
+function DateSelected(dateText, inst){
+    selectedDate = $(this).datepicker('getDate');
+    SetTableCaption();
+    BuildMonths(selectedDate);
+    BuildTable();
+}
+
 function SetTableCaption() {
     var monthTable = document.getElementById("MonthView"),
-        tableCaption = monthTable.createCaption(),
-        monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        tableCaption = monthTable.createCaption();
 
-        tableCaption.innerHTML = `<div><h3>Carl Ray Forgey ${monthNames[selectedDate.getMonth()]} ${selectedDate.getFullYear()}</h3></div>`;
+        tableCaption.innerHTML = `<div><h3>Carl Ray Forgey ${MonthNames[selectedDate.getMonth()]} ${selectedDate.getFullYear()}</h3></div>`;
         tableCaption.innerHTML += "<div>Cert. #8FCA677M</div>";
-        tableCaption.innerHTML += "<div>135.267(c) Assigned Duty Times: 0500 to 1900</div>"
+        tableCaption.innerHTML += "<div>135.267(c) Assigned Duty Times: 0500 to 1900</div>";
 }
 
 function BuildTable() {
     var monthTable = document.getElementById("MonthView"),
-        tableBody = monthTable.getElementsByTagName("tbody")[0];
+        tableBody = monthTable.getElementsByTagName("tbody")[0],
+        year = selectedDate.getFullYear(),
+        month = MonthNames[selectedDate.getMonth()],
+        daysArray = DatesStructure[year][month].days;
+    
+    while(tableBody.childNodes.length>0){tableBody.removeChild(tableBody.lastChild);}
 
-    for (var i = 0; i < Days.length; i++)
+    for (var i = 0; i < daysArray.length; i++)
     {
         var newRow = tableBody.insertRow(i),
             dateCell = newRow.insertCell(0),
@@ -33,10 +44,9 @@ function BuildTable() {
             totalDaily = newRow.insertCell(5),
             month = newRow.insertCell(6),
             comments = newRow.insertCell(7),
-            editCell = newRow.insertCell(8),
-            dayDate = new Date(Days[i].Date);
+            editCell = newRow.insertCell(8);
 
-            dateCell.appendChild(document.createTextNode(dayDate.getDate()));
+            dateCell.appendChild(document.createTextNode(daysArray[i].getDate()));
             editCell.innerHTML = "<img src='./images/Pencil-icon.png' alt='edit' class='editicon' />";
     }
 }
@@ -47,7 +57,7 @@ $(function() {
     Days.sort(SortRows);
     BuildMonths();
     BuildTable();
-    $(".datepicker").datepicker({ onSelect: function(dateText, inst){ selectedDate = $(this).datepicker('getDate'); SetTableCaption(); }});
+    $(".datepicker").datepicker({ onSelect: DateSelected });
     $(".datepicker").datepicker("setDate", new Date());
     $(".timepicker").timepicker();
 });

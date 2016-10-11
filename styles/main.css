@@ -11,3 +11,8 @@
     width: 17px;
     height: 17px;
 }
+
+.hourstable {
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+}
