@@ -1,5 +1,4 @@
-var Days = GetDays(),
-    selectedDate,
+var selectedDate,
     monthsInYear = new Array();
 
 function SortRows(a, b) {
@@ -46,7 +45,11 @@ function BuildTable() {
             comments = newRow.insertCell(7),
             editCell = newRow.insertCell(8);
 
-            dateCell.appendChild(document.createTextNode(daysArray[i].getDate()));
+            dateCell.appendChild(document.createTextNode(daysArray[i].Date.getDate()));
+            if (daysArray[i].StartTime !== null)
+            {
+                timesCell.appendChild(document.createTextNode(`${daysArray[i].StartTime} - ${daysArray[i].EndTime}`))
+            }
             editCell.innerHTML = "<img src='./images/Pencil-icon.png' alt='edit' class='editicon' />";
     }
 }
@@ -54,7 +57,7 @@ function BuildTable() {
 $(function() {
     selectedDate = new Date();
     SetTableCaption();
-    Days.sort(SortRows);
+    Data.sort(SortRows);
     BuildMonths();
     BuildTable();
     $(".datepicker").datepicker({ onSelect: DateSelected });
